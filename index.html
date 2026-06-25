@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABYSS YOKAI · IJO FILES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1280px;
+      width: 100%;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 0 1px #2a2a2a inset;
+      padding: 2rem 2rem 3rem;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    /* dekorasi hitam-putih */
+    .decoration-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.75rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .decoration-top::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: #d0d0d0;
+      box-shadow: 0 0 12px #aaa;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #ddd;
+      text-transform: uppercase;
+    }
+
+    .logo i {
+      color: #f0f0f0;
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 4px #aaa);
+    }
+
+    .badge {
+      background: #222;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border: 1px solid #444;
+      color: #ccc;
+    }
+
+    .badge i {
+      margin-right: 6px;
+      color: #ccc;
+    }
+
+    .grid-deco {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.2;
+    }
+
+    .grid-deco span {
+      height: 3px;
+      background: #aaa;
+      width: 100%;
+      display: block;
+    }
+
+    .grid-deco span:nth-child(odd) {
+      background: #333;
+    }
+
+    .hero {
+      margin-bottom: 3.5rem;
+      position: relative;
+      padding: 1rem 0 1rem 1.5rem;
+      border-left: 6px solid #aaa;
+      background: linear-gradient(90deg, #1a1a1a 0%, transparent 100%);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: #f0f0f0;
+      line-height: 1.1;
+      text-shadow: 0 0 10px rgba(200,200,200,0.2);
+    }
+
+    .hero h1 span {
+      color: #777;
+      font-weight: 400;
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-size: 2.2rem;
+    }
+
+    .hero .sub {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: #a0a0a0;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero .sub i {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0 2.5rem;
+      color: #444;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #2a2a2a;
+    }
+
+    .divider-icon {
+      color: #aaa;
+      font-size: 1.2rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
+
+    .card {
+      background: #171717;
+      border: 1px solid #2a2a2a;
+      padding: 2rem 1.8rem;
+      position: relative;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 0 #0a0a0a;
+    }
+
+    .card:hover {
+      border-color: #4a4a4a;
+      background: #1c1c1c;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #aaa;
+    }
+
+    .card-label {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #2a2a2a;
+      padding-bottom: 0.6rem;
+    }
+
+    .card-label i {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ececec;
+    }
+
+    .card h2 small {
+      font-weight: 400;
+      color: #777;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+
+    .card p {
+      color: #b5b5b5;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .card ul li {
+      padding: 0.5rem 0 0.5rem 1.8rem;
+      border-bottom: 1px dashed #252525;
+      position: relative;
+      color: #c5c5c5;
+      font-size: 0.9rem;
+    }
+
+    .card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .card ul li i {
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      color: #777;
+      font-size: 0.8rem;
+    }
+
+    .highlight-box {
+      background: #0f0f0f;
+      border-left: 4px solid #aaa;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0 0.5rem;
+      font-style: italic;
+      color: #cfcfcf;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .highlight-box i {
+      margin-right: 12px;
+      color: #999;
+    }
+
+    .timeline-deco {
+      display: flex;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .timeline-deco span {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #444;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .timeline-deco span:nth-child(odd) {
+      background: #aaa;
+      border-color: #aaa;
+    }
+
+    .conclusion {
+      margin-top: 3rem;
+      border-top: 2px solid #2a2a2a;
+      padding-top: 2.5rem;
+      position: relative;
+    }
+
+    .conclusion::before {
+      content: '⚫⚪';
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: #141414;
+      padding: 0 10px;
+      color: #555;
+      letter-spacing: 6px;
+      font-size: 0.8rem;
+    }
+
+    .conclusion h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ddd;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .conclusion h3 i {
+      color: #888;
+      font-size: 1.6rem;
+    }
+
+    .conclusion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .conclusion-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .conclusion-item {
+      background: #131313;
+      padding: 1.5rem;
+      border: 1px solid #282828;
+      box-shadow: inset 0 0 0 1px #1f1f1f;
+    }
+
+    .conclusion-item .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2a2a2a;
+      letter-spacing: -2px;
+      margin-bottom: 0.3rem;
+    }
+
+    .conclusion-item h4 {
+      font-weight: 700;
+      color: #ccc;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .conclusion-item p {
+      font-size: 0.9rem;
+      color: #a5a5a5;
+    }
+
+    .footer-deco {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #222;
+      padding-top: 1.8rem;
+      color: #4a4a4a;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-deco i {
+      color: #555;
+      margin: 0 4px;
+    }
+
+    .stripe {
+      display: flex;
+      gap: 6px;
+    }
+
+    .stripe span {
+      display: inline-block;
+      width: 30px;
+      height: 4px;
+      background: #2a2a2a;
+    }
+
+    .stripe span:nth-child(odd) {
+      background: #777;
+    }
+
+    .badge-black {
+      background: #000;
+      color: #ccc;
+      padding: 0.2rem 0.8rem;
+      border: 1px solid #333;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+    }
+
+    .icon-deco {
+      opacity: 0.2;
+      font-size: 0.8rem;
+    }
+
+    .quote-mark {
+      color: #555;
+      font-size: 2.2rem;
+      line-height: 0;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* catatan harian tambahan */
+    .diary-extra {
+      background: #111;
+      border-left: 4px solid #555;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .diary-extra p {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .diary-extra i {
+      color: #777;
+      margin-right: 8px;
+    }
+
+    .research-note {
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .research-note strong {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="decoration-top">
+    <div class="logo">
+      <i class="fas fa-skull"></i> 
+      <span>IJO·FILES</span>
+      <span style="font-weight:300;font-size:0.8rem;color:#555;margin-left:6px;">// ABYSS</span>
+    </div>
+    <div class="badge"><i class="fas fa-circle" style="color:#aaa;font-size:0.5rem;"></i> SECTOR E-7 · TEROWONGAN INUNAKI</div>
+  </div>
+
+  <div class="grid-deco">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero">
+    <h1>ABYSS YOKAI <span>— 接続</span></h1>
+    <div class="sub">
+      <i class="fas fa-book-open"></i> CATATAN HARIAN · KORBAN PERUNDUNGAN 
+      <i class="fas fa-circle" style="font-size:0.3rem;color:#555;"></i>
+      <i class="fas fa-flask"></i> DOKUMEN IJO · GATA &amp; MUKI
+    </div>
+  </div>
+
+  <!-- grid utama: diary + dokumen -->
+  <div class="section-grid">
+    <!-- diary card -->
+    <div class="card">
+      <div class="card-label"><i class="fas fa-pen-fancy"></i> CATATAN HARIAN · GADIS</div>
+      <h2>“suara di terowongan” <small>#Inunaki</small></h2>
+      <p>Gadis korban perundungan sering duduk di dekat pintu masuk <strong>Terowongan Inunaki</strong> lama. Di sanalah dia mulai “berbicara pada kegelapan” dan mendengar suara yang membalas — yang dia yakini sebagai arwah ayahnya.</p>
+      <div class="highlight-box">
+        <i class="fas fa-quote-left"></i> “besok adalah harinya, segalanya akan berubah” 
+        <span style="display:block;margin-top:6px;font-style:normal;color:#888;font-size:0.8rem;">— entitas memberinya janji kosong</span>
+      </div>
+      <ul>
+        <li><i class="fas fa-ghost"></i> Suara itu memperkuat rasa benci &amp; keputusasaan</li>
+        <li><i class="fas fa-scroll"></i> Gadis menulis nama teman-temannya di kertas, lalu memberikannya pada terowongan</li>
+        <li><i class="fas fa-link"></i> “Terhubung” dengan ABYSS YOKAI melalui terowongan</li>
+      </ul>
+      <div class="timeline-deco">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- dokumen IJO card -->
+    <div class="card">
+      <div class="card-label"><i class="fas fa-file-alt"></i> DOKUMEN RAHASIA · IJO</div>
+      <h2>ABYSS YOKAI <small>#GATA #Muki</small></h2>
+      <p>Organisme anomali di dasar <strong>ABYSS</strong>, ditemukan secara tidak sengaja saat pembangunan ulang Terowongan Inunaki. Fasilitas penelitian Sector E-7 dibangun di sekitar pintu masuk.</p>
+      <ul>
+        <li><i class="fas fa-brain"></i> Mampu menyebabkan paranoia, stres, &amp; rasa sakit psikologis</li>
+        <li><i class="fas fa-dragon"></i> Diduga bertanggung jawab atas penciptaan <strong>GATA</strong> (monster)</li>
+        <li><i class="fas fa-skull"></i> Wabah GATA meningkat di sekitar ABYSS YOKAI, <strong>Muki</strong> adalah bentuk paling kuat</li>
+      </ul>
+      <div style="margin-top:1rem;background:#111;padding:0.8rem;border:1px solid #2a2a2a;">
+        <span style="color:#888;font-size:0.7rem;letter-spacing:1px;"><i class="fas fa-microscope"></i> CATATAN IJO:</span>
+        <p style="font-size:0.9rem;color:#bbb;margin-top:4px;">“Tidak ada interaksi langsung tercatat, tetapi pengaruh terhadap pikiran manusia sangat nyata. Entitas ini memikat korban di dekatnya.”</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- catatan harian tambahan (4 catatan) + penelitian -->
+  <div style="margin-bottom:2.5rem;border:1px solid #2a2a2a;background:#111;padding:1.5rem;">
+    <h3 style="color:#ddd;font-size:1.4rem;margin-bottom:1rem;display:flex;gap:0.8rem;align-items:center;"><i class="fas fa-book" style="color:#777;"></i> Catatan Harian — 4 entri</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+      <div class="diary-extra"><p><i class="fas fa-solid fa-note-sticky"></i> <strong>Ren</strong> menempel catatan di kursi, mengatakan mejaku terkutuk dan orang tuaku meninggalkanku karena aku gila. Aku menghabiskan satu jam menatap lantai. Saki menatapku dengan jijik. Aku berharap semuanya lenyap.</p></div>
+      <div class="diary-extra"><p><i class="fas fa-solid fa-note-sticky"></i> <strong>Ren</strong> meninggalkan catatan di loker: “berhenti menatap semua orang”. Meja basah bau susu basi. Taka mengejekku. Aku mencoba mengeringkan kertas. Guru tidak peduli. Tolong, seseorang bantu aku.</p></div>
+      <div class="diary-extra"><p><i class="fas fa-solid fa-note-sticky"></i> Aku menemukan tempat damai di dekat pintu masuk Inunaki. Aku berbicara pada kegelapan, seolah orang tuaku mendengarkan. Hari ini aku mendengar sesuatu membalas. Aku merasa didengar untuk pertama kalinya.</p></div>
+      <div class="diary-extra"><p><i class="fas fa-solid fa-note-sticky"></i> Saki menjatuhkan buku-bukuku. Aku tidak menangis. Aku mendengar suara ayah di terowongan. Dia bilang akan membuat mereka lenyap. Aku menulis nama mereka di kertas dan memberikannya ke terowongan. Besok semuanya akan berubah.</p></div>
+    </div>
+  </div>
+
+  <!-- catatan peneliti (4 catatan) -->
+  <div style="margin-bottom:2.5rem;border:1px solid #2a2a2a;background:#0f0f0f;padding:1.5rem;">
+    <h3 style="color:#ddd;font-size:1.4rem;margin-bottom:1rem;display:flex;gap:0.8rem;align-items:center;"><i class="fas fa-flask" style="color:#777;"></i> Catatan Peneliti IJO</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+      <div class="research-note"><strong>Spesies Dasar</strong><br>Gata tahap awal, mempertahankan pakaian asli, agresif, berkelompok. Dapat dinetralkan dengan amunisi IJO. Perilaku berkelompok mengindikasikan pembentukan koloni.</div>
+      <div class="research-note"><strong>Varian Berbahaya</strong><br>Berdiri dengan dua kaki, anggota tubuh memanjang, kecepatan ekstrem. Penyergapan, sensitif suara. Muki pertama tercatat bersama varian Manusia Gua.</div>
+      <div class="research-note"><strong>Spesialisasi Jurang</strong><br>Varian khusus di JURANG, sangat kuat dan lincah, daya tahan tinggi. Berkelompok dengan orientasi penyergapan. Tingkat pembentukan Muki tertinggi.</div>
+      <div class="research-note"><strong>Entitas Asal & Operasi</strong><br>YOKAI JURANG ditemukan di Sektor E-7. Awalnya ekstraksi sumber daya, berubah menjadi penahanan setelah wabah GATA. Muki pertama ditemukan. Operasi pemusnahan diotorisasi. Entitas dirantai dengan segel ritual dari periode Edo.</div>
+    </div>
+  </div>
+
+  <!-- hubungan / titik koneksi -->
+  <div style="background:#111;border:1px solid #2a2a2a;padding:1.8rem;margin-bottom:2.5rem;">
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <i class="fas fa-arrow-right" style="color:#777;"></i>
+        <span style="font-weight:700;color:#ccc;letter-spacing:1px;">TITIK KONEKSI</span>
+      </div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <span style="background:#1f1f1f;padding:0.3rem 1.2rem;border:1px solid #333;"><i class="fas fa-tunnel" style="margin-right:8px;color:#999;"></i>TEROWONGAN INUNAKI</span>
+        <span style="background:#1f1f1f;padding:0.3rem 1.2rem;border:1px solid #333;"><i class="fas fa-mask" style="margin-right:8px;color:#999;"></i>ABYSS YOKAI</span>
+        <span style="background:#1f1f1f;padding:0.3rem 1.2rem;border:1px solid #333;"><i class="fas fa-fire" style="margin-right:8px;color:#999;"></i>GATA · MUKI</span>
+      </div>
+    </div>
+    <div style="margin-top:1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;border-top:1px solid #252525;padding-top:1.5rem;">
+      <div>
+        <p style="color:#aaa;font-size:0.9rem;"><i class="fas fa-quote-right" style="color:#555;margin-right:6px;"></i> Gadis itu mulai “berbicara pada kegelapan” — suara yang membalas adalah <strong>ABYSS YOKAI</strong> yang memanipulasi. Dia menjadi korban pertama yang memberdayakan entitas melalui keputusasaannya.</p>
+      </div>
+      <div>
+        <p style="color:#aaa;font-size:0.9rem;"><i class="fas fa-skull" style="color:#555;margin-right:6px;"></i> Dokumen IJO mencatat wabah GATA di area dekat ABYSS YOKAI. Emosi negatif gadis itu menjadi “bahan bakar” yang membantu entitas menyebarkan pengaruh hingga memicu wabah besar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KESIMPULAN HUBUNGAN -->
+  <div class="conclusion">
+    <h3><i class="fas fa-link"></i> KESIMPULAN HUBUNGAN</h3>
+    <p style="color:#b5b5b5;max-width:80%;">Catatan harian gadis itu adalah “saksi bisu” dari awal mula interaksi manusia dengan ABYSS YOKAI. “Suara” yang dia dengar bukanlah ayahnya, tetapi entitas yang memanipulasinya untuk tujuan yang lebih besar: menyebabkan wabah GATA. Dokumen IJO adalah catatan resmi dari “akibat” interaksi tersebut.</p>
+    
+    <div class="conclusion-grid">
+      <div class="conclusion-item">
+        <div class="num">01</div>
+        <h4>Manipulasi &amp; Janji Kosong</h4>
+        <p>Suara berpura-pura menjadi arwah ayahnya, memperkuat kebencian, memberi harapan palsu “akan bebas”. Entitas memikat korban untuk memperkuat dirinya sendiri.</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="num">02</div>
+        <h4>Wabah GATA &amp; Muki</h4>
+        <p>Dokumen IJO mencatat peningkatan GATA di dekat ABYSS YOKAI. Muki adalah bentuk paling kuat. Catatan harian bisa jadi adalah “proses” korban yang menjadi katalis wabah.</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="num">03</div>
+        <h4>Pemicu &amp; Dampak</h4>
+        <p>Gadis ini adalah aspek manusiawi dari bencana yang digambarkan secara klinis dalam dokumen IJO. Dia adalah pemicu atau bagian dari rantai peristiwa yang menyebabkan wabah yang kemudian berusaha dikendalikan oleh IJO.</p>
+      </div>
+    </div>
+
+    <!-- dekorasi tambahan -->
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-start;border-left:4px solid #444;padding-left:1.5rem;">
+      <span style="color:#777;font-size:0.8rem;"><i class="fas fa-circle" style="color:#aaa;font-size:0.4rem;vertical-align:middle;"></i> Terowongan Inunaki · titik awal</span>
+      <span style="color:#777;font-size:0.8rem;"><i class="fas fa-circle" style="color:#aaa;font-size:0.4rem;vertical-align:middle;"></i> ABYSS YOKAI · entitas anomali</span>
+      <span style="color:#777;font-size:0.8rem;"><i class="fas fa-circle" style="color:#aaa;font-size:0.4rem;vertical-align:middle;"></i> GATA · monster</span>
+      <span style="color:#777;font-size:0.8rem;"><i class="fas fa-circle" style="color:#aaa;font-size:0.4rem;vertical-align:middle;"></i> Muki · bentuk terkuat</span>
+    </div>
+  </div>
+
+  <div class="footer-deco">
+    <div class="stripe">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div>
+      <i class="fas fa-skull"></i> 
+      <span style="margin:0 6px;">IJO · SECTOR E-7</span> 
+      <i class="fas fa-circle" style="font-size:0.3rem;color:#444;"></i>
+      <span style="margin-left:6px;">ABYSS YOKAI · GATA INCIDENT</span>
+    </div>
+    <div class="badge-black">
+      <i class="fas fa-file-signature"></i> KLASIFIKASI: RAHASIA
+    </div>
+  </div>
+
+  <div style="margin-top:0.8rem;display:flex;gap:4px;opacity:0.2;">
+    <span style="width:100%;height:2px;background:#888;"></span>
+    <span style="width:100%;height:2px;background:#333;"></span>
+    <span style="width:100%;height:2px;background:#888;"></span>
+    <span style="width:100%;height:2px;background:#333;"></span>
+  </div>
+
+</div>
+</body>
+</html>
